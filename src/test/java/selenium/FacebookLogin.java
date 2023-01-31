@@ -43,7 +43,6 @@ public class FacebookLogin {
 		Thread.sleep(3000);
 		driver.close();
 	}
-	
 	@Test
 	public void locators() throws InterruptedException {
 		driver.get("https://www.facebook.com/");
@@ -60,7 +59,6 @@ public class FacebookLogin {
 		Thread.sleep(3000);
 		driver.close();
 	}
-	
 	@Test
 	public void linktest__locators() {
 		driver.get("https://www.facebook.com/");
@@ -103,13 +101,13 @@ public class FacebookLogin {
 		Thread.sleep(3000);
 		driver.close();
 	}
-    @Test
+       @Test
 	public void xpath() throws InterruptedException {
 		driver.get("https://www.facebook.com/");
 		driver.manage().window().maximize();
 		driver.findElement(By.xpath("//input[@placeholder='Email address or phone number']")).sendKeys("Srushti Mane");
 		driver.findElement(By.xpath("//input[@name='pass']")).sendKeys("srushtimane123");
-//		driver.findElement(By.xpath("//div[contains(@class='_55r1 _6luy')]")).click();
+		driver.findElement(By.xpath("//div[contains(@class='_55r1 _6luy')]")).click();
 		Thread.sleep(3000);
 		driver.close();
 	}
