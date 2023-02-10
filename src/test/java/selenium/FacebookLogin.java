@@ -7,28 +7,34 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+
 public class FacebookLogin {
+
 	public WebDriver driver;
 	@BeforeMethod
 	public void setup() {
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\SRUSHTI\\Downloads\\chromedriver_win32\\chromedriver.exe");
 		driver = new ChromeDriver();
-	}
+	}	
 	@Test
-	public void login_Page() throws InterruptedException{			
+	public void login_Page() throws InterruptedException{	
 		driver.get("https://www.facebook.com/");
 		driver.manage().window().maximize();
 		//driver.manage().window().minimize();
 		Thread.sleep(5000);
-		driver.close();		
+		
 		String title = driver.getTitle();
-		System.out.println("Title:" +title);	
+		System.out.println("Title:" +title);
+	
 		String source = driver.getPageSource();
-		System.out.println("Souce: " +source);	
+		System.out.println("Souce: " +source);
+		
 		String url = driver.getCurrentUrl();
-		System.out.println("url: " +url);	
-		//driver.quit();			
-	}	
+		System.out.println("url: " +url);
+		
+		driver.close();
+		//driver.quit();		
+	}
 	@Test
 	public void browser_navigate() throws InterruptedException {
 		driver.get("https://www.facebook.com/");
@@ -62,37 +68,47 @@ public class FacebookLogin {
 	}
 	
 	@Test
-	public void linktest__locators() {
+	public void linktest__locators() throws InterruptedException {
 		driver.get("https://www.facebook.com/");
 		driver.manage().window().maximize();
 		driver.findElement(By.linkText("Forgotten password?")).click();	
+		Thread.sleep(3000);
+		driver.close();
 	}
 	@Test
-	public void partiallinktext_locators() {
+	public void partiallinktext_locators() throws InterruptedException {
 		driver.get("https://www.facebook.com/");
 		driver.manage().window().maximize();
 		driver.findElement(By.partialLinkText("Forgotten")).click();
+		Thread.sleep(3000);
+		driver.close();
 	}	
 	@Test
-	public void cssselector() {
+	public void cssselector() throws InterruptedException {
 		driver.get("https://www.facebook.com/");
 		driver.manage().window().maximize();
 		WebElement element = driver.findElement(By.cssSelector("input[id='email']"));
 		element.sendKeys("Srushti");
+		Thread.sleep(3000);
+		driver.close();
 	}	
 	@Test
-	public void cssselector_hash() {
+	public void cssselector_hash() throws InterruptedException {
 		driver.get("https://www.facebook.com/");
 		driver.manage().window().maximize();
 		WebElement element = driver.findElement(By.cssSelector("input#email"));
 		element.sendKeys("Srushti");
+		Thread.sleep(3000);
+		driver.close();
 	}	
 	@Test
-	public void cssselector_dot() {
+	public void cssselector_dot() throws InterruptedException {
 		driver.get("https://www.facebook.com/");
 		driver.manage().window().maximize();
 		WebElement element = driver.findElement(By.cssSelector("input.email"));
 		element.sendKeys("Srushti");
+		Thread.sleep(3000);
+		driver.close();
 	}
 	@Test
 	public void cssselector_class() throws InterruptedException {
